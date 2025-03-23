@@ -4,7 +4,7 @@ Hello👋, Welcome to My first integration test framework! :)
 **Tools:**
 ⚡ Selenium – UI automation
 ⚡ TestNG – Test Framework
-⚡ Allure – Rreporting
+⚡ Allure – Reporting
 ⚡ WireMock – API mocking for stable and predictable test scenarios
   
 ## Obstacles
