@@ -1,0 +1,27 @@
+{
+  "todos": [
+    {
+      "id": "6f41595e-6e8f-4fc1-8e8a-7d1da591b931",
+      "userId": "69a5bc08-e839-49d2-86f7-e232c7892fc2",
+      "title": "Learn wiremock",
+      "isCompleted": 0,
+      "createdAt": "2025-03-20T04:23:34.000Z"
+    },
+    {
+      "id": "dead2c90-db5f-4872-851a-396708acbab2",
+      "userId": "69a5bc08-e839-49d2-86f7-e232c7892fc2",
+      "title": "Learn appium",
+      "isCompleted": 0,
+      "createdAt": "2025-03-20T04:23:21.000Z"
+    },
+    {
+      "id": "43dbb3c9-634d-4c61-a0f3-9a389fc9490a",
+      "userId": "69a5bc08-e839-49d2-86f7-e232c7892fc2",
+      "title": "Learn selenium",
+      "isCompleted": 0,
+      "createdAt": "2025-03-20T04:23:14.000Z"
+    }
+  ],
+  "total": 3,
+  "totalPages": 1
+}

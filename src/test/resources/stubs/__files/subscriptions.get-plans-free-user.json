@@ -1,0 +1,24 @@
+[
+  {
+    "name": "regular",
+    "price": 0,
+    "maxTodos": 3,
+    "description": "Basic plan with limited todos",
+    "features": {
+      "max_todos": 3,
+      "todo_pagination": false,
+      "advanced_features": false
+    }
+  },
+  {
+    "name": "advanced",
+    "price": 10,
+    "maxTodos": 10,
+    "description": "Advanced plan with more todos and features",
+    "features": {
+      "max_todos": 10,
+      "todo_pagination": true,
+      "advanced_features": true
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "message": "Subscription created successfully",
+  "subscription": {
+    "id": "69a5bc08-e839-49d2-86f7-e232c7892fc2",
+    "userId": "f33e79e7-1a30-43a8-8500-055e2f6ed14d",
+    "subscriptionType": "advanced",
+    "startDate": "2025-03-20T18:19:52.501Z",
+    "endDate": "2025-04-20T18:19:52.501Z",
+    "isActive": true,
+    "paymentMethod": "credit_card",
+    "lastFourDigits": "1111"
+  }
+}
