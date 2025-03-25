@@ -1,8 +1,6 @@
 package com.qacart.tasky.client;
 
 import com.qacart.tasky.models.Card;
-import com.qacart.tasky.models.User;
-import com.qacart.tasky.utils.RoutesUtils;
 import io.restassured.response.Response;
 
 public final class SubscriptionClient {

@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.qacart.tasky.fixtures.UserFixtures.getDefaultUser;
 @Epic("Dashboard Module")
 public class DashboardTest extends BaseTest{
     private LoginPage loginPage;

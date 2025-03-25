@@ -3,7 +3,6 @@ package com.qacart.tasky.testcases.e2e;
 import com.qacart.tasky.base.BaseTest;
 import com.qacart.tasky.components.SideBarComponent;
 import com.qacart.tasky.fixtures.UserFixtures;
-import com.qacart.tasky.mocks.auth.profile.ProfileStub;
 import com.qacart.tasky.pages.LoginPage;
 import com.qacart.tasky.pages.ProfilePage;
 import com.qacart.tasky.utils.DataUtils;
