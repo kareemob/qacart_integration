@@ -2,6 +2,7 @@ package com.qacart.tasky.pages;
 
 import com.qacart.tasky.components.CancelSubscriptionComponent;
 import com.qacart.tasky.components.UpgradeSubscriptionComponent;
+import com.qacart.tasky.config.ConfigFactory;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,11 @@ public class SubscriptionPage {
     private final By cancelSubscriptionButton = By.xpath("//button[text()='Cancel Subscription']");
     private final By successToastMessage = By.cssSelector(".Toastify__toast");
     private final By subscriptionExpiringAlert = By.cssSelector(".MuiAlert-message");
+    private final By cardNumberInput = By.cssSelector("[name='cardNumber']");
+    private final By expiryMontInput = By.cssSelector("[name='expiryMonth']");
+    private final By expiryYearInput = By.cssSelector("[name='expiryYear']");
+    private final By cvvInput = By.cssSelector("[name='cvv']");
+    private final By subscribeButton = By.cssSelector(".MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-colorPrimary.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-colorPrimary.css-1dzsn8i");
     public final UpgradeSubscriptionComponent upgradeSubscriptionComponent = new UpgradeSubscriptionComponent();
     public final CancelSubscriptionComponent cancelSubscriptionComponent = new CancelSubscriptionComponent();
 
@@ -56,5 +62,20 @@ public class SubscriptionPage {
     @Step("Is subscription expire warning displayed")
     public boolean isSubscriptionExpiringWarningDisplayed(){
         return wait(5).until(ExpectedConditions.visibilityOfElementLocated(subscriptionExpiringAlert)).isDisplayed();
+    }
+    @Step("Navigate to subscriptions page")
+    public void load() {
+        getDriver().get(ConfigFactory.getConfig().url() + "/dashboard/subscription");
+    }
+    @Step("Fill card details")
+    public void fillCardDetails(String cardNumber, String expiryMonth, String expiryYear, String cvv){
+        wait(5).until(ExpectedConditions.visibilityOfElementLocated(cardNumberInput)).sendKeys(cardNumber);
+        getDriver().findElement(expiryMontInput).sendKeys(expiryMonth);
+        getDriver().findElement(expiryYearInput).sendKeys(expiryYear);
+        getDriver().findElement(cvvInput).sendKeys(cvv);
+    }
+    @Step("Click subscribe")
+    public void clickSubscribe(){
+        getDriver().findElement(subscribeButton).click();
     }
 }

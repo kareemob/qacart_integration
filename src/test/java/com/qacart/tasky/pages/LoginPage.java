@@ -1,17 +1,25 @@
 package com.qacart.tasky.pages;
 
 
+import com.qacart.tasky.client.SubscriptionClient;
+import com.qacart.tasky.client.UserClient;
 import com.qacart.tasky.config.ConfigFactory;
 import com.qacart.tasky.mocks.auth.login.LoginStub;
 import com.qacart.tasky.mocks.auth.profile.ProfileStub;
-import com.qacart.tasky.mocks.subscriptions.GetCurrentSubscriptionStateStub;
+import com.qacart.tasky.models.Card;
+import com.qacart.tasky.models.User;
 import io.qameta.allure.Step;
+import io.restassured.response.Response;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 import static com.qacart.tasky.driver.managers.DriverManager.getDriver;
 
@@ -71,5 +79,43 @@ public class LoginPage {
     @Step("Is Success message displayed")
     public boolean isSuccessRegistrationMessageDisplayed(){
         return wait(5).until(ExpectedConditions.visibilityOfElementLocated(successRegistrationToast)).isDisplayed();
+    }
+    @Step("Simulate login")
+    public String simulateLoginFreeUser(User user){
+        UserClient.registerApi(user);
+        Response response = UserClient.loginApi(user);
+        User returnedUser = response.body().as(User.class);
+        Instant expiryInstant = Instant.now().plus(24, ChronoUnit.HOURS);
+        Date expiryDate = Date.from(expiryInstant);
+        Cookie userCookie = new Cookie.Builder("access_token", returnedUser.getToken())
+                .domain(".qacart.com")
+                .expiresOn(expiryDate)
+                .path("/")
+                .build();
+        getDriver().manage().addCookie(userCookie);
+        return returnedUser.getToken();
+    }
+
+    @Step("Simulate login")
+    public String simulateLoginAdvancedUser(User user, Card card){
+        UserClient.registerApi(user);
+        Response response = UserClient.loginApi(user);
+        User returnedUser = response.body().as(User.class);
+        SubscriptionClient.subscribeApi(card, returnedUser.getToken());
+        Instant expiryInstant = Instant.now().plus(24, ChronoUnit.HOURS);
+        Date expiryDate = Date.from(expiryInstant);
+        Cookie userCookie = new Cookie.Builder("access_token", returnedUser.getToken())
+                .domain(".qacart.com")
+                .expiresOn(expiryDate)
+                .path("/")
+                .build();
+        getDriver().manage().addCookie(userCookie);
+        return returnedUser.getToken();
+    }
+    @Step("Get user token")
+    public String getUserToken(User user){
+        Response response = UserClient.loginApi(user);
+        User returnedUser = response.body().as(User.class);
+        return returnedUser.getToken();
     }
 }

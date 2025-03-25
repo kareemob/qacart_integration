@@ -1,5 +1,6 @@
 package com.qacart.tasky.pages;
 
+import com.qacart.tasky.config.ConfigFactory;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -37,5 +38,9 @@ public class ProfilePage {
         return getDriver().findElements(successToastMessage)
                 .stream()
                 .anyMatch(toast -> toast.getAttribute("innerText").contains(messageText));
+    }
+    @Step("Navigate to profile page")
+    public void load() {
+        getDriver().get(ConfigFactory.getConfig().url() + "/dashboard/profile");
     }
 }

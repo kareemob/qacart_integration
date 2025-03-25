@@ -1,7 +1,10 @@
 package com.qacart.tasky.pages;
 
+import com.qacart.tasky.client.UserClient;
 import com.qacart.tasky.config.ConfigFactory;
+import com.qacart.tasky.fixtures.UserFixtures;
 import com.qacart.tasky.mocks.auth.signup.RegisterStub;
+import com.qacart.tasky.models.User;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -67,5 +70,14 @@ public class RegisterPage {
             borderColor = fieldSet.get(0).getCssValue("border-color").toLowerCase();
         }
         return borderColor.contains("244, 67, 54") && isDisplayed;
+    }
+    @Step("Register api")
+    public void registerApi(String email, String password){
+        User user = UserFixtures.getDefaultUser(email, password);
+        UserClient.registerApi(user);
+    }
+    @Step("Register api")
+    public void registerApi(User user){
+        UserClient.registerApi(user);
     }
 }
