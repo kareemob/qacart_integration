@@ -6,6 +6,7 @@ Hello👋, Welcome to My first integration test framework! :)
 ⚡ TestNG – Test Framework
 ⚡ Allure – Reporting
 ⚡ WireMock – API mocking for stable and predictable test scenarios
+⚡ RestAssured – API steps
   
 ## Obstacles
 
