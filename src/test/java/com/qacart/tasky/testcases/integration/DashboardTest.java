@@ -1,4 +1,4 @@
-package com.qacart.tasky.testcases;
+package com.qacart.tasky.testcases.integration;
 
 
 import com.qacart.tasky.base.BaseTest;

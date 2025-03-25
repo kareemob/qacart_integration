@@ -1,5 +1,7 @@
 package com.qacart.tasky.components;
 
+import com.qacart.tasky.client.TodoClient;
+import com.qacart.tasky.models.Todo;
 import com.qacart.tasky.utils.BrowserActionsUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
@@ -54,4 +56,15 @@ public class AddNewTodoComponent {
         getDriver().findElement(cancelButton).click();
         wait(5).until(ExpectedConditions.invisibilityOfElementLocated(cancelButton));
     }
+    @Step("Add todo using API")
+    public void addTodoApi(Todo todo, String token, boolean isAdvanced) {
+        if (isAdvanced) {
+            for (int i = 0; i < 3; i++) { // Run 3 times for advanced users
+                TodoClient.addTask(token, todo);
+            }
+        } else {
+            TodoClient.addTask(token, todo); // Run once for non-advanced users
+        }
+    }
+
 }

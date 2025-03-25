@@ -3,6 +3,7 @@ package com.qacart.tasky.pages;
 import com.qacart.tasky.components.AddNewTodoComponent;
 import com.qacart.tasky.components.EditTodoComponent;
 import com.qacart.tasky.components.TodoComponent;
+import com.qacart.tasky.config.ConfigFactory;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -69,5 +70,9 @@ public class TodosPage {
         return getDriver().findElements(successToastMessage)
                 .stream()
                 .anyMatch(toast -> toast.getAttribute("innerText").contains(messageText));
+    }
+    @Step("Navigate to todos page")
+    public void load() {
+        getDriver().get(ConfigFactory.getConfig().url() + "/dashboard/todos");
     }
 }

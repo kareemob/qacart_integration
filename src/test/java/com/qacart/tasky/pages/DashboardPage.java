@@ -1,5 +1,6 @@
 package com.qacart.tasky.pages;
 
+import com.qacart.tasky.config.ConfigFactory;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -24,7 +25,10 @@ public class DashboardPage {
     private WebDriverWait wait(int timeout){
         return new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
     }
-
+    @Step("Navigate to dashboard page")
+    public void load(){
+        getDriver().get(ConfigFactory.getConfig().url() + "/dashboard");
+    }
     @Step("Is subscription dialog displayed")
     public boolean isSubscriptionDialogDisplayed(){
         return wait(5).until(ExpectedConditions.visibilityOfElementLocated(subscriptionDialog)).isDisplayed();
