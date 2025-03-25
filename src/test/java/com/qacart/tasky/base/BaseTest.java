@@ -12,7 +12,7 @@ import java.time.Duration;
 import static com.qacart.tasky.driver.managers.DriverManager.getDriver;
 
 public class BaseTest {
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(groups = {"integration", "e2e"})
     protected void driverSetup(){
         ServerManager.startServer();
         Driver.initDriver();
@@ -20,7 +20,7 @@ public class BaseTest {
         getDriver().manage().window().maximize();
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod(groups = {"integration", "e2e"})
     protected void tearDown(ITestResult testResult){
         ScreenshotUtils.takeScreenshot(testResult);
         getDriver().quit();

@@ -5,14 +5,8 @@ import com.qacart.tasky.components.SideBarComponent;
 import com.qacart.tasky.config.ConfigFactory;
 import com.qacart.tasky.fixtures.CardFixture;
 import com.qacart.tasky.fixtures.UserFixtures;
-import com.qacart.tasky.mocks.auth.profile.ProfileStub;
-import com.qacart.tasky.mocks.subscriptions.CancelSubscriptionStub;
-import com.qacart.tasky.mocks.subscriptions.GetCurrentSubscriptionStateStub;
-import com.qacart.tasky.mocks.subscriptions.GetSubscriptionPlansStub;
-import com.qacart.tasky.mocks.subscriptions.SubscribeStub;
 import com.qacart.tasky.pages.LoginPage;
 import com.qacart.tasky.pages.SubscriptionPage;
-import com.qacart.tasky.utils.DataUtils;
 import io.qameta.allure.Epic;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -21,13 +15,11 @@ import org.testng.annotations.Test;
 @Epic("Subscription Module")
 public class SubscriptionsTest extends BaseTest {
     private LoginPage loginPage;
-    private SideBarComponent sideBarComponent;
     private SubscriptionPage subscriptionPage;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
-        sideBarComponent = new SideBarComponent();
         subscriptionPage = new SubscriptionPage();
     }
 

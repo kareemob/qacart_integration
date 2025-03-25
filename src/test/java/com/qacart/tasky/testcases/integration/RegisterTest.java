@@ -16,14 +16,14 @@ public class RegisterTest extends BaseTest {
     private DashboardPage dashboardPage;
     private RegisterPage registerPage;
 
-    @BeforeMethod
+    @BeforeMethod(groups = "integration")
     void initPages() {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
         registerPage = new RegisterPage();
     }
 
-    @Test(description = "User Should be Able to Register")
+    @Test(description = "User Should be Able to Register", groups = "integration")
     void userShouldBeAbleToRegister(){
         registerPage.load();
         registerPage.mockSuccessRegisterFree();
@@ -32,7 +32,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(loginPage.isSuccessRegistrationMessageDisplayed());
     }
 
-    @Test(description = "User Should not be Able to Register With Registered Email")
+    @Test(description = "User Should not be Able to Register With Registered Email", groups = "integration")
     void userShouldNotBeAbleToRegisterWithRegisteredEmail(){
         registerPage.load();
         registerPage.alreadyExistUserMocked();
@@ -41,7 +41,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(registerPage.isErrorMessageDisplayed());
     }
 
-    @Test(description = "User Should not be Able to Register With Invalid Email")
+    @Test(description = "User Should not be Able to Register With Invalid Email", groups = "integration")
     void userShouldNotBeAbleToRegisterWithInvalidEmail(){
         registerPage.load();
         registerPage.fillRegistrationInfo(DataUtils.getName(), DataUtils.getName(), "test@ex", DataUtils.getPassword(), true);
@@ -49,7 +49,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(registerPage.isMissingFieldsErrorDisplayed());
     }
 
-    @Test(description = "Subscription Dialog Should Appear When User Select Advanced Plan")
+    @Test(description = "Subscription Dialog Should Appear When User Select Advanced Plan", groups = "integration")
     void subscriptionDialogShouldAppearWhenUserSelectAdvancedPlan(){
         registerPage.load();
         registerPage.mockSuccessRegisterFree();
@@ -60,7 +60,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(dashboardPage.isSubscriptionDialogDisplayed());
     }
 
-    @Test(description = "user Should not be Able to Register With Empty First Name")
+    @Test(description = "user Should not be Able to Register With Empty First Name", groups = "integration")
     void userShouldNotBeAbleToRegisterWithEmptyFirstName(){
         registerPage.load();
         registerPage.fillRegistrationInfo("", DataUtils.getName(), DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true);
@@ -68,7 +68,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(registerPage.isMissingFieldsErrorDisplayed());
     }
 
-    @Test(description = "user Should not be Able to Register With Empty Last Name")
+    @Test(description = "user Should not be Able to Register With Empty Last Name", groups = "integration")
     void userShouldNotBeAbleToRegisterWithEmptyLastName(){
         registerPage.load();
         registerPage.fillRegistrationInfo(DataUtils.getName(), "", DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true);
@@ -76,7 +76,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(registerPage.isMissingFieldsErrorDisplayed());
     }
 
-    @Test(description = "user Should not be Able to Register With Empty Email")
+    @Test(description = "user Should not be Able to Register With Empty Email", groups = "integration")
     void userShouldNotBeAbleToRegisterWithEmptyEmail(){
         registerPage.load();
         registerPage.fillRegistrationInfo(DataUtils.getName(), DataUtils.getName(), "", DataUtils.getPassword(), true);
@@ -84,7 +84,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(registerPage.isMissingFieldsErrorDisplayed());
     }
 
-    @Test(description = "user Should not be Able to Register With Empty Password")
+    @Test(description = "user Should not be Able to Register With Empty Password", groups = "integration")
     void userShouldNotBeAbleToRegisterWithEmptyPassword(){
         registerPage.load();
         registerPage.fillRegistrationInfo(DataUtils.getName(), DataUtils.getName(), DataUtils.generateUniqueEmail(), "", true);

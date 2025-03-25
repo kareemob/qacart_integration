@@ -26,7 +26,7 @@ public class TodoTest extends BaseTest {
     private SideBarComponent sideBarComponent;
     private SubscriptionPage subscriptionPage;
 
-    @BeforeMethod
+    @BeforeMethod(groups = "integration")
     void initPages() {
         loginPage = new LoginPage();
         todosPage = new TodosPage();
@@ -34,7 +34,7 @@ public class TodoTest extends BaseTest {
         subscriptionPage = new SubscriptionPage();
     }
 
-    @Test(description = "User Should see `No todos yet. Create your first todo!` When There is no Todos")
+    @Test(description = "User Should see `No todos yet. Create your first todo!` When There is no Todos", groups = "integration")
     void userShouldSeeNoTodosMessageWhenThereIsNoTodos() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -43,7 +43,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.isNoTodosMessageDisplayed());
     }
 
-    @Test(description = "User Should be Able to Add Todo")
+    @Test(description = "User Should be Able to Add Todo", groups = "integration")
     void userShouldBeAbleToAddTodo() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -55,7 +55,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.verifySuccessToastMessage("Todo created successfully"));
     }
 
-    @Test(description = "Free User Should not be Able to Edit Todo")
+    @Test(description = "Free User Should not be Able to Edit Todo", groups = "integration")
     void freeUserShouldNotBeAbleToEditTodo() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -64,7 +64,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.loadTodos().get(0).isEditButtonLocked());
     }
 
-    @Test(description = "Cancel Button on Add New Todo Button Should Eliminate Add New Todo Component")
+    @Test(description = "Cancel Button on Add New Todo Button Should Eliminate Add New Todo Component", groups = "integration")
     void CancelAddNewTodoButtonShouldEliminateAddNewTodoComponent(){
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -75,7 +75,7 @@ public class TodoTest extends BaseTest {
         Assert.assertFalse(todosPage.addNewTodoComponent.isAddNewTodoComponentVisible());
     }
 
-    @Test(description = "User Should be Able to Delete Todo")
+    @Test(description = "User Should be Able to Delete Todo", groups = "integration")
     void userShouldBeAbleToDeleteTodo() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -86,7 +86,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.verifySuccessToastMessage("Todo deleted successfully"));
     }
 
-    @Test(description = "User Should not be Able to Add More than 3 Todos")
+    @Test(description = "User Should not be Able to Add More than 3 Todos", groups = "integration")
     void freeUserShouldNotBeAbleToAddMoreThan3Todos() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -95,7 +95,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.isAddButtonDisabled());
     }
 
-    @Test(description = "Free User Should See a Warning when Reaching 3 Todos")
+    @Test(description = "Free User Should See a Warning when Reaching 3 Todos", groups = "integration")
     void freeUserShouldShouldSeeWarningWhenReach3Todos() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -104,7 +104,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.isFreeUserWarningForTodoLimitDisplayed());
     }
 
-    @Test(description = "Upgraded user should not see any warnings")
+    @Test(description = "Upgraded user should not see any warnings", groups = "integration")
     void upgradedUserShouldNotSeeAnyWarnings() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -126,7 +126,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.areFreeAlertsNotDisplayed());
     }
 
-    @Test(description = "Advanced user should be able to add more than 3 todos")
+    @Test(description = "Advanced user should be able to add more than 3 todos", groups = "integration")
     void advancedUserShouldBeAbleToAddMoreThan3Todos() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);
@@ -140,7 +140,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.verifySuccessToastMessage("Todo created successfully"));
     }
 
-    @Test(description = "Advanced user should be able to edit todos")
+    @Test(description = "Advanced user should be able to edit todos", groups = "integration")
     void advancedUserShouldBeAbleToEditTodo() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);

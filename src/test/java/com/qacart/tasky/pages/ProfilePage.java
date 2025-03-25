@@ -3,12 +3,9 @@ package com.qacart.tasky.pages;
 import com.qacart.tasky.config.ConfigFactory;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-import java.util.List;
 
 import static com.qacart.tasky.driver.managers.DriverManager.getDriver;
 

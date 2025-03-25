@@ -5,20 +5,9 @@ import com.qacart.tasky.components.SideBarComponent;
 import com.qacart.tasky.fixtures.CardFixture;
 import com.qacart.tasky.fixtures.TodoFixture;
 import com.qacart.tasky.fixtures.UserFixtures;
-import com.qacart.tasky.mocks.auth.profile.ProfileStub;
-import com.qacart.tasky.mocks.subscriptions.GetCurrentSubscriptionStateStub;
-import com.qacart.tasky.mocks.subscriptions.GetSubscriptionPlansStub;
-import com.qacart.tasky.mocks.subscriptions.SubscribeStub;
-import com.qacart.tasky.mocks.todos.AddTodosStub;
-import com.qacart.tasky.mocks.todos.DeleteTodoStub;
-import com.qacart.tasky.mocks.todos.EditTodoStub;
-import com.qacart.tasky.mocks.todos.GetTodosStub;
 import com.qacart.tasky.models.User;
 import com.qacart.tasky.pages.LoginPage;
-import com.qacart.tasky.pages.RegisterPage;
-import com.qacart.tasky.pages.SubscriptionPage;
 import com.qacart.tasky.pages.TodosPage;
-import com.qacart.tasky.utils.DataUtils;
 import io.qameta.allure.Epic;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -29,19 +18,16 @@ public class TodoTest extends BaseTest {
     private LoginPage loginPage;
     private TodosPage todosPage;
     private SideBarComponent sideBarComponent;
-    private SubscriptionPage subscriptionPage;
-    private RegisterPage registerPage;
 
-    @BeforeMethod(alwaysRun = true)
+
+    @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
         todosPage = new TodosPage();
         sideBarComponent = new SideBarComponent();
-        subscriptionPage = new SubscriptionPage();
-        registerPage = new RegisterPage();
     }
 
-    @Test(description = "User Should see `No todos yet. Create your first todo!` When There is no Todos")
+    @Test(description = "User Should see `No todos yet. Create your first todo!` When There is no Todos", groups = "e2e")
     void userShouldSeeNoTodosMessageWhenThereIsNoTodos() {
         loginPage.load();
         loginPage.simulateLoginFreeUser(UserFixtures.getDefaultUser());
@@ -49,7 +35,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.isNoTodosMessageDisplayed());
     }
 
-    @Test(description = "User Should be Able to Add Todo")
+    @Test(description = "User Should be Able to Add Todo", groups = "e2e")
     void userShouldBeAbleToAddTodo() {
         loginPage.load();
         loginPage.simulateLoginFreeUser(UserFixtures.getDefaultUser());
@@ -59,7 +45,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.verifySuccessToastMessage("Todo created successfully"));
     }
 
-    @Test(description = "Free User Should not be Able to Edit Todo")
+    @Test(description = "Free User Should not be Able to Edit Todo", groups = "e2e")
     void freeUserShouldNotBeAbleToEditTodo() {
         User user = UserFixtures.getDefaultUser();
         loginPage.load();
