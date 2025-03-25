@@ -18,7 +18,7 @@ public class ProfileTest extends BaseTest {
     private SideBarComponent sideBarComponent;
     private ProfilePage profilePage;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
         sideBarComponent = new SideBarComponent();

@@ -29,19 +29,16 @@ public class TodoTest extends BaseTest {
     private LoginPage loginPage;
     private TodosPage todosPage;
     private SideBarComponent sideBarComponent;
-    private SubscriptionPage subscriptionPage;
-    private RegisterPage registerPage;
 
-    @BeforeMethod(alwaysRun = true)
+
+    @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
         todosPage = new TodosPage();
         sideBarComponent = new SideBarComponent();
-        subscriptionPage = new SubscriptionPage();
-        registerPage = new RegisterPage();
     }
 
-    @Test(description = "User Should see `No todos yet. Create your first todo!` When There is no Todos")
+    @Test(description = "User Should see `No todos yet. Create your first todo!` When There is no Todos", groups = "e2e")
     void userShouldSeeNoTodosMessageWhenThereIsNoTodos() {
         loginPage.load();
         loginPage.simulateLoginFreeUser(UserFixtures.getDefaultUser());
@@ -49,7 +46,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.isNoTodosMessageDisplayed());
     }
 
-    @Test(description = "User Should be Able to Add Todo")
+    @Test(description = "User Should be Able to Add Todo", groups = "e2e")
     void userShouldBeAbleToAddTodo() {
         loginPage.load();
         loginPage.simulateLoginFreeUser(UserFixtures.getDefaultUser());
@@ -59,7 +56,7 @@ public class TodoTest extends BaseTest {
         Assert.assertTrue(todosPage.verifySuccessToastMessage("Todo created successfully"));
     }
 
-    @Test(description = "Free User Should not be Able to Edit Todo")
+    @Test(description = "Free User Should not be Able to Edit Todo", groups = "e2e")
     void freeUserShouldNotBeAbleToEditTodo() {
         User user = UserFixtures.getDefaultUser();
         loginPage.load();

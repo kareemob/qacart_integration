@@ -7,7 +7,6 @@ import com.qacart.tasky.fixtures.UserFixtures;
 import com.qacart.tasky.models.User;
 import com.qacart.tasky.pages.LoginPage;
 import com.qacart.tasky.pages.RegisterPage;
-import com.qacart.tasky.utils.DataUtils;
 import io.qameta.allure.Epic;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -19,7 +18,7 @@ public class LoginTest extends BaseTest {
     private SideBarComponent sideBarComponent;
     private RegisterPage registerPage;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
         sideBarComponent = new SideBarComponent();

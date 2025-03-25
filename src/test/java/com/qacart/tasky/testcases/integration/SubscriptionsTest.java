@@ -21,14 +21,14 @@ public class SubscriptionsTest extends BaseTest {
     private SideBarComponent sideBarComponent;
     private SubscriptionPage subscriptionPage;
 
-    @BeforeMethod
+    @BeforeMethod(groups = "integration")
     void initPages() {
         loginPage = new LoginPage();
         sideBarComponent = new SideBarComponent();
         subscriptionPage = new SubscriptionPage();
     }
 
-    @Test(description = "Free user Should be Able to Upgrade to Advanced Plan")
+    @Test(description = "Free user Should be Able to Upgrade to Advanced Plan", groups = "integration")
     void freeUserShouldBeAbleToUpdateToAdvancedPlan(){
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -43,7 +43,7 @@ public class SubscriptionsTest extends BaseTest {
         Assert.assertTrue(subscriptionPage.verifySuccessToastMessage("Successfully upgraded to advanced"));
     }
 
-    @Test(description = "Free user Should not be Able to See Current Status in Subscription Page")
+    @Test(description = "Free user Should not be Able to See Current Status in Subscription Page", groups = "integration")
     void freeUserShouldNotBeAbleToToSeeCurrentStatus(){
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -52,7 +52,7 @@ public class SubscriptionsTest extends BaseTest {
         Assert.assertFalse(subscriptionPage.isSubscriptionStatusDisplayed());
     }
 
-    @Test(description = "Advanced user Should be Able to See Current Status in Subscription Page")
+    @Test(description = "Advanced user Should be Able to See Current Status in Subscription Page", groups = "integration")
     void advancedUserShouldBeAbleToToSeeCurrentStatus(){
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);
@@ -62,7 +62,7 @@ public class SubscriptionsTest extends BaseTest {
         Assert.assertTrue(subscriptionPage.isSubscriptionStatusDisplayed());
     }
 
-    @Test(description = "Advanced user Should be Able to Cancel Subscription")
+    @Test(description = "Advanced user Should be Able to Cancel Subscription", groups = "integration")
     void advancedUserShouldBeAbleToToCancelSubscription(){
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);
@@ -75,7 +75,7 @@ public class SubscriptionsTest extends BaseTest {
         Assert.assertTrue(subscriptionPage.verifySuccessToastMessage("Subscription successfully cancelled"));
     }
 
-    @Test(description = "Advanced user Should See a Warning When the Expiry Date is due 2 Days")
+    @Test(description = "Advanced user Should See a Warning When the Expiry Date is due 2 Days", groups = "integration")
     void advancedUserShouldSeeWarningWhenExpiryDateIsDueTwoDays() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);

@@ -18,7 +18,7 @@ public class RegisterTest extends BaseTest {
     private DashboardPage dashboardPage;
     private RegisterPage registerPage;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();

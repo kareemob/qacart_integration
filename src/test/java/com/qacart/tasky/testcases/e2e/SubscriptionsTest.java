@@ -24,7 +24,7 @@ public class SubscriptionsTest extends BaseTest {
     private SideBarComponent sideBarComponent;
     private SubscriptionPage subscriptionPage;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
         sideBarComponent = new SideBarComponent();

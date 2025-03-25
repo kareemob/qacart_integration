@@ -6,16 +6,17 @@ import com.qacart.tasky.fixtures.UserFixtures;
 import com.qacart.tasky.pages.DashboardPage;
 import com.qacart.tasky.pages.LoginPage;
 
+import io.qameta.allure.Epic;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.qacart.tasky.fixtures.UserFixtures.getDefaultUser;
-
+@Epic("Dashboard Module")
 public class DashboardTest extends BaseTest{
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(groups = "e2e")
     void initPage(){
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();

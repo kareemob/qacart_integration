@@ -20,7 +20,7 @@ public class DashboardTest extends BaseTest {
     private SubscriptionPage subscriptionPage;
     private TodosPage todosPage;
 
-    @BeforeMethod
+    @BeforeMethod(groups = "integration")
     void initPages() {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
@@ -28,21 +28,21 @@ public class DashboardTest extends BaseTest {
         todosPage = new TodosPage();
     }
 
-    @Test(description = "Free user Should See a Free Status Inside Dashboard")
+    @Test(description = "Free user Should See a Free Status Inside Dashboard", groups = "integration")
     void freeUserShouldSeeFreeStatusInsideDashboard() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
         Assert.assertTrue(dashboardPage.getSubscriptionType().contains("Free"));
     }
 
-    @Test(description = "Advanced user Should See a Advanced Status Inside Dashboard")
+    @Test(description = "Advanced user Should See a Advanced Status Inside Dashboard", groups = "integration")
     void advancedUserShouldSeeAdvancedStatusInsideDashboard() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);
         Assert.assertTrue(dashboardPage.getSubscriptionType().contains("Advanced"));
     }
 
-    @Test(description = "Advanced user Should See a Warning When the Expiry Date is due 2 Days")
+    @Test(description = "Advanced user Should See a Warning When the Expiry Date is due 2 Days", groups = "integration")
     void advancedUserShouldSeeWarningWhenExpiryDateIsDueTwoDays() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);
@@ -50,7 +50,7 @@ public class DashboardTest extends BaseTest {
         Assert.assertTrue(dashboardPage.isWarningMessageRetrievedCorrectly("Your subscription is about to expire!"));
     }
 
-    @Test(description = "Advanced User Should be Redirected to Subscription Page When Click Renew From Quick Actions")
+    @Test(description = "Advanced User Should be Redirected to Subscription Page When Click Renew From Quick Actions", groups = "integration")
     void userShouldBeRedirectedToSubscriptionPageWhenClickRenewFromQuickActions() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);
@@ -59,7 +59,7 @@ public class DashboardTest extends BaseTest {
         Assert.assertTrue(subscriptionPage.isSubscriptionExpiringWarningDisplayed());
     }
 
-    @Test(description = "User Should be Redirected to Todos Page when Click Manage Todos from Quick Actions")
+    @Test(description = "User Should be Redirected to Todos Page when Click Manage Todos from Quick Actions", groups = "integration")
     void UserShouldBeRedirectedToTodosPageWhenClickManageTodosFromQuickActions() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
@@ -67,7 +67,7 @@ public class DashboardTest extends BaseTest {
         Assert.assertTrue(todosPage.isUpgradeMessageDisplayed());
     }
 
-    @Test(description = "User Should be Redirected to Subscription Page when Click Manage Subscription from Quick Actions")
+    @Test(description = "User Should be Redirected to Subscription Page when Click Manage Subscription from Quick Actions", groups = "integration")
     void UserShouldBeRedirectedToSubscriptionPageWhenClickManageSubscriptionFromQuickActions() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, false);

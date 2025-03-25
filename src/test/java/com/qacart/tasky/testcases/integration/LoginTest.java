@@ -15,20 +15,20 @@ public class LoginTest extends BaseTest {
     private LoginPage loginPage;
     private SideBarComponent sideBarComponent;
 
-    @BeforeMethod
+    @BeforeMethod(groups = "integration")
     void initPages() {
         loginPage = new LoginPage();
         sideBarComponent = new SideBarComponent();
     }
 
-    @Test(description = "User Should be Able to Login With Correct Credentials")
+    @Test(description = "User Should be Able to Login With Correct Credentials", groups = "integration")
     void userShouldBeAbleToLoginWithCorrectCredentials() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), true, true);
         Assert.assertTrue(sideBarComponent.isDashboardIconDisplayed());
     }
 
-    @Test(description = "User Should be Able to Login With Incorrect Credentials")
+    @Test(description = "User Should be Able to Login With Incorrect Credentials", groups = "integration")
     void userShouldBeAbleToLoginWithInCorrectCredentials() {
         loginPage.load();
         loginPage.mockLogin(DataUtils.generateUniqueEmail(), DataUtils.getPassword(), false, true);
@@ -36,7 +36,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.isInvalidCredentialsMessageDisplayed());
     }
 
-    @Test(description = "User Should not be Able to Login With Empty Email")
+    @Test(description = "User Should not be Able to Login With Empty Email", groups = "integration")
     void userShouldNotBeAbleToLoginWithEmptyEmail() {
         loginPage.load();
         loginPage.fillUserDetails("", DataUtils.getPassword());
@@ -44,7 +44,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.isFillAllFieldsAlertDisplayed());
     }
 
-    @Test(description = "User Should not be Able to Login With Empty Password")
+    @Test(description = "User Should not be Able to Login With Empty Password", groups = "integration")
     void userShouldNotBeAbleToLoginWithEmptyPassword() {
         loginPage.load();
         loginPage.fillUserDetails(DataUtils.generateUniqueEmail(), "");
