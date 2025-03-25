@@ -4,13 +4,13 @@ package com.qacart.tasky.fixtures;
 import com.qacart.tasky.models.User;
 import com.qacart.tasky.utils.DataUtils;
 
-public class UserFixtures {
+public final class UserFixtures {
 
 
     public static User getDefaultUser(){
         return User.builder()
-                .setFirstName("kareem")
-                .setLastName("obaidat")
+                .setFirstName("new")
+                .setLastName("user")
                 .setEmail(DataUtils.generateUniqueEmail())
                 .setPassword("Test123!")
                 .build();
@@ -27,9 +27,9 @@ public class UserFixtures {
 
     public static User getInvalidUser(){
         return User.builder()
-                .setFirstName("kareem")
-                .setLastName("obaidat")
-                .setEmail("invalid!")
+                .setFirstName("new")
+                .setLastName("user")
+                .setEmail("invalid$email")
                 .setPassword("Test123!")
                 .build();
     }

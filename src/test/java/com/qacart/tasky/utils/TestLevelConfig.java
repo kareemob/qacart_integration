@@ -3,8 +3,8 @@ package com.qacart.tasky.utils;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-public final class TestGroupUtils {
-    private TestGroupUtils(){}
+public final class TestLevelConfig {
+    private TestLevelConfig(){}
 
     public static boolean getCurrentTestPackage() {
         try {
