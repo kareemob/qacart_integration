@@ -28,7 +28,7 @@ public final class ServerManager {
 
 
     public static void startServer() {
-        configureFor("localhost", 8088);
+        configureFor("localhost", ConfigFactory.getConfig().wiremockPort());
         server.start();
 
     }
