@@ -1,7 +1,7 @@
 package com.qacart.tasky.testcases.integration;
 
 
-import com.qacart.tasky.base.BaseTest;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.mocks.subscriptions.GetCurrentSubscriptionStateStub;
 import com.qacart.tasky.pages.DashboardPage;
 import com.qacart.tasky.pages.LoginPage;
@@ -14,7 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Dashboard Module")
-public class DashboardTest extends BaseTest {
+public class DashboardTest extends Base {
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private SubscriptionPage subscriptionPage;

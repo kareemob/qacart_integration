@@ -1,6 +1,6 @@
 package com.qacart.tasky.testcases.e2e;
 
-import com.qacart.tasky.base.BaseTest;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.fixtures.CardFixture;
 import com.qacart.tasky.fixtures.UserFixtures;
 import com.qacart.tasky.pages.DashboardPage;
@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Dashboard Module")
-public class DashboardTest extends BaseTest{
+public class DashboardTest extends Base {
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     @BeforeMethod(groups = "e2e")

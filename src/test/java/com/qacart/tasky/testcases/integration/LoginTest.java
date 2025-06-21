@@ -1,6 +1,6 @@
 package com.qacart.tasky.testcases.integration;
 
-import com.qacart.tasky.base.BaseTest;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.components.SideBarComponent;
 import com.qacart.tasky.pages.LoginPage;
 import com.qacart.tasky.utils.DataUtils;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 
 @Epic("Login Module")
-public class LoginTest extends BaseTest {
+public class LoginTest extends Base {
     private LoginPage loginPage;
     private SideBarComponent sideBarComponent;
 

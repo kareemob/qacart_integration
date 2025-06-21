@@ -1,6 +1,6 @@
 package com.qacart.tasky.testcases.integration;
 
-import com.qacart.tasky.base.BaseTest;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.components.SideBarComponent;
 import com.qacart.tasky.mocks.auth.profile.ProfileStub;
 import com.qacart.tasky.mocks.subscriptions.GetCurrentSubscriptionStateStub;
@@ -20,7 +20,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Todo Module")
-public class TodoTest extends BaseTest {
+public class TodoTest extends Base {
     private LoginPage loginPage;
     private TodosPage todosPage;
     private SideBarComponent sideBarComponent;

@@ -1,7 +1,6 @@
 package com.qacart.tasky.testcases.e2e;
 
-import com.qacart.tasky.base.BaseTest;
-import com.qacart.tasky.components.SideBarComponent;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.config.ConfigFactory;
 import com.qacart.tasky.fixtures.CardFixture;
 import com.qacart.tasky.fixtures.UserFixtures;
@@ -13,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Subscription Module")
-public class SubscriptionsTest extends BaseTest {
+public class SubscriptionsTest extends Base {
     private LoginPage loginPage;
     private SubscriptionPage subscriptionPage;
 

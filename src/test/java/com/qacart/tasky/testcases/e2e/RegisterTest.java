@@ -1,6 +1,6 @@
 package com.qacart.tasky.testcases.e2e;
 
-import com.qacart.tasky.base.BaseTest;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.fixtures.UserFixtures;
 import com.qacart.tasky.models.User;
 import com.qacart.tasky.pages.DashboardPage;
@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Registration Module")
-public class RegisterTest extends BaseTest {
+public class RegisterTest extends Base {
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private RegisterPage registerPage;

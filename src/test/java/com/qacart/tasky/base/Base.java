@@ -11,7 +11,7 @@ import java.time.Duration;
 
 import static com.qacart.tasky.driver.managers.DriverManager.getDriver;
 
-public class BaseTest {
+public class Base {
     @BeforeMethod(groups = {"integration", "e2e"})
     protected void driverSetup(){
         ServerManager.startServer();

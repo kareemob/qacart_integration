@@ -1,6 +1,6 @@
 package com.qacart.tasky.testcases.integration;
 
-import com.qacart.tasky.base.BaseTest;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.components.SideBarComponent;
 import com.qacart.tasky.mocks.auth.profile.ProfileStub;
 import com.qacart.tasky.pages.*;
@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Profile Module")
-public class ProfileTest extends BaseTest {
+public class ProfileTest extends Base {
     private LoginPage loginPage;
     private SideBarComponent sideBarComponent;
     private ProfilePage profilePage;

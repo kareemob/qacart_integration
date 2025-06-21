@@ -1,6 +1,6 @@
 package com.qacart.tasky.testcases.integration;
 
-import com.qacart.tasky.base.BaseTest;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.components.SideBarComponent;
 import com.qacart.tasky.mocks.auth.profile.ProfileStub;
 import com.qacart.tasky.mocks.subscriptions.CancelSubscriptionStub;
@@ -16,7 +16,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Subscription Module")
-public class SubscriptionsTest extends BaseTest {
+public class SubscriptionsTest extends Base {
     private LoginPage loginPage;
     private SideBarComponent sideBarComponent;
     private SubscriptionPage subscriptionPage;

@@ -1,7 +1,6 @@
 package com.qacart.tasky.testcases.e2e;
 
-import com.qacart.tasky.base.BaseTest;
-import com.qacart.tasky.components.SideBarComponent;
+import com.qacart.tasky.base.Base;
 import com.qacart.tasky.fixtures.UserFixtures;
 import com.qacart.tasky.pages.LoginPage;
 import com.qacart.tasky.pages.ProfilePage;
@@ -12,15 +11,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @Epic("Profile Module")
-public class ProfileTest extends BaseTest {
+public class ProfileTest extends Base {
     private LoginPage loginPage;
-    private SideBarComponent sideBarComponent;
     private ProfilePage profilePage;
 
     @BeforeMethod(groups = "e2e")
     void initPages() {
         loginPage = new LoginPage();
-        sideBarComponent = new SideBarComponent();
         profilePage = new ProfilePage();
     }
 
