@@ -18,7 +18,7 @@ jobs:
         uses: browser-actions/setup-chrome@latest
 
       - name: Run Test
-        run: mvn clean test
+        run: mvn clean test -Dgroups=integration
 
       - name: Get Allure history
         uses: actions/checkout@v2
