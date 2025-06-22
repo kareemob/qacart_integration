@@ -10,6 +10,10 @@ public final class ProxyChromeManager {
 
     public static WebDriver getChromeDriver(){
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
         Proxy proxy = new Proxy();
         proxy.setHttpProxy("localhost:8088").setSslProxy("localhost:8088");
         options.setProxy(proxy);
